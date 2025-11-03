@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from fastapi.openapi.utils import get_openapi
 from starlette.responses import RedirectResponse
 
 app = FastAPI(
@@ -8,7 +7,6 @@ app = FastAPI(
   version="1.0.0"
 )
 
-# --- Rota de Redirecionamento da Raiz para a Documentação ---
 @app.get("/", include_in_schema=False)
 async def redirect_to_docs():
   return RedirectResponse(url="/docs")
