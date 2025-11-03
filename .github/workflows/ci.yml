@@ -34,3 +34,9 @@ jobs:
           coverage run -m pytest
           coverage report
           coverage xml
+
+      - name: Build e push Docker
+        run: |
+          docker build -t usuario/carteira-na-mao:latest .
+          echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u usuario --password-stdin
+          docker push usuario/carteira-na-mao:latest
