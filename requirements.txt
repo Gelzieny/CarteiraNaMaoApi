@@ -14,3 +14,6 @@ pytest
 coverage
 httpx
 pydantic-settings
+PyJWT
+passlib[bcrypt]
+python-multipart
