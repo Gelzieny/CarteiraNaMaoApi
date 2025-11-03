@@ -13,3 +13,4 @@ passlib[bcrypt]
 pytest
 coverage
 httpx
+pydantic-settings

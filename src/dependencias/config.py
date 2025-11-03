@@ -9,7 +9,7 @@ class Settings(BaseSettings):
   POSTGRES_PRODUCAO_DB: str
 
   model_config = SettingsConfigDict(
-    env_file=[f".env.{profile}", ".env"],  
+    env_file=[".env"],  
   )
 
 settings = Settings()

@@ -2,7 +2,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, text
 
 
-from App.config import settings
+from src.dependencias.config import settings
+
 
 
 class ConexaoPostgres:
