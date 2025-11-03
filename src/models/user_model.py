@@ -1,4 +1,9 @@
+from typing import Optional
 from pydantic import BaseModel, Field
+
+
+class UserList(BaseModel):
+  nome: Optional[str] =  Field()
 
 class UserModel(BaseModel):
   nome: str =  Field(..., example="teste")
@@ -11,7 +16,7 @@ class UserUpdateModel(BaseModel):
   password: Optional[str] = Field()
   
 class UsersModel(BaseModel):
-  codigo: str =  Field()
-  nome: str =  Field()
-  email: str = Field()
+  codigo: Optional[str] =  Field()
+  nome: Optional[str] =  Field()
+  email: Optional[str] = Field()
   

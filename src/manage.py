@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.responses import RedirectResponse
 
-from src.routes.user_router import *
+from src.routes.user_router import user_router
 
 app = FastAPI(
   title="Carteira Na Mão API",

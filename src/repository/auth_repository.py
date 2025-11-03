@@ -3,7 +3,7 @@ from src.models.user_model import UsersModel
 from src.models.auth_model import CrendentialsModel
 from src.dependencias.db.conexao_postgres import ConexaoPostgres
 
-class UserRepository:
+class CredentialsDao:
   def __init__(self, db_connection: ConexaoPostgres):
     self.cx = db_connection
     
