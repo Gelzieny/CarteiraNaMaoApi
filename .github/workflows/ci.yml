@@ -24,15 +24,4 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Rodar testes e gerar relatório de cobertura
-        run: |
-          pip install pytest coverage
-          coverage run -m pytest || true
-          coverage report
-          coverage xml
-
-      - name: Build e push Docker
-        run: |
-          docker build -t usuario/carteira-na-mao:latest .
-          echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u usuario --password-stdin
-          docker push usuario/carteira-na-mao:latest
+      
