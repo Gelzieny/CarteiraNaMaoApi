@@ -18,8 +18,8 @@ class UserUpdateModel(BaseModel):
   password: Optional[str] = Field()
   
 class UsersModel(BaseModel):
-  codigo: Optional[str] =  Field()
-  nome: Optional[str] =  Field()
-  login: Optional[str] =  Field()
-  email: Optional[str] = Field()
+  codigo: str =  Field()
+  nome: str =  Field()
+  login: str =  Field()
+  email: str = Field()
   

@@ -1,5 +1,6 @@
-from fastapi import APIRouter, Body, HTTPException, Depends, status
+from typing import List
 from fastapi.responses import JSONResponse
+from fastapi import APIRouter, Body, HTTPException, Depends, status
 
 from src.utils.utils import *
 from src.models.user_model import *
@@ -15,7 +16,7 @@ def get_db_connection():
 def get_user_repository(db: ConexaoPostgres = Depends(get_db_connection)):
   return UserRepository(db)
 
-@user_router.post("/", response_model=list[UsersModel]) 
+@user_router.post("/", response_model=List[UsersModel]) 
 async def list_user(user: UserList = Body(), repo: UserRepository = Depends(get_user_repository)):
   param = {
     'username': user.nome,

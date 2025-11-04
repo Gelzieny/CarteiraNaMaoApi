@@ -8,7 +8,7 @@ class UserRepository:
     self.cx = db_connection
     
   def get_usuarios(self, user: dict) -> dict:
-    sql = """ SELECT CODIGO NOME, LOGIN, EMAIL, PASSWORD_HASH FROM USUARIOS WHERE 1 = 1 """
+    sql = """ SELECT CODIGO, NOME, LOGIN, EMAIL, PASSWORD_HASH FROM USUARIOS WHERE 1 = 1 """
     
     if "username" in user:
       sql += "AND NOME = :username"
@@ -23,7 +23,17 @@ class UserRepository:
   
     ret = self.cx.select(sql, user)
     
-    return ret
+    print(ret)
+    
+    users = []
+    for row in ret:
+      users.append({
+        "codigo": str(row["codigo"]), 
+        "nome": row["nome"],
+        "login": row["login"],
+        "email": row["email"]
+      })
+    return users
   
   
   def create_usuarios(self, user: dict) -> dict:
